@@ -1,0 +1,80 @@
+// Post SCSS for the theme.
+
+// *********** EXTRA COLOUR VARIABLES ***********
+// Note, --primary is set by the theme brand colour in theme settings
+:root {
+    --primarydark: #704eb5;
+}
+
+// *********** LOGIN PAGE ***********
+// Sets the background of the login page as per theme settings page
+body.pagelayout-login {
+    background-image: url([[pix:theme_orionpurple|loginbackgroundimage]]);
+    background-size: cover;
+}
+
+// *********** NAVIGATION MENU TWEAKS ***********
+// Background colour of top navigation menu
+.navbar.fixed-top {
+    background-color: var(--primary) !important;
+}
+// Site name text in top menu
+// Requires important or it won't work
+.navbar-brand {
+    color: var(--white) !important;
+}
+// Link text within the top menu only (not sub-menus)
+// Requires important or it won't work for the Site administration menu item (all others work)
+.navbar.fixed-top a.nav-link {
+    color: var(--white) !important;
+}
+// Background colour of the top menu when an item is hovered over
+// Must be set to a darker colour, as the link colour stays as set above
+.navbar.fixed-top .nav-link:hover {
+    background-color: var(--primarydark);
+}
+// Background color of the top menu item when an item is active
+// Also removing the shadow and underline effect from active/focus items in top menu
+.navbar.fixed-top .nav-link:focus {
+    background-color: var(--primarydark);
+    box-shadow: none;
+    border-bottom-color: transparent;
+}
+.navbar.fixed-top .nav-link.active {
+    border-bottom-color: transparent;
+}
+// Notification bell icon in top navigation menu
+.navbar.fixed-top .navbar-nav .popover-region .icon {
+    color: var(--white);
+}
+// Edit mode text colour in top navigation menu
+// Requires important or another class .text-primary overrides it when edit mode is turned on
+.navbar.fixed-top label.mr-2.mb-0 {
+    color: var(--white) !important;
+}
+// Down arrow next to profile icon in top navigation menu
+.navbar.fixed-top .dropdown-toggle::after {
+    color: var(--white);
+}
+// Border of Edit mode toggle when edit mode is turned on
+.navbar.fixed-top .custom-control-input:checked~.custom-control-label::before {
+    border-color: var(--white);
+}
+// Login link in top navigation menu when logged out
+.navbar.fixed-top .usermenu .login a {
+    color: var(--white);
+}
+// Text displayed in top navigation menu when role changes
+.navbar.fixed-top .userbutton .usertext {
+    color: var(--white);
+}
+
+// *********** ACTIVITY DISPLAY TWEAKS ***********
+// Removing the redundant repeated activity heading when viewing H5P activities in a course
+.cm-type-h5pactivity div#region-main-box h2 {
+    display: none;
+}
+// Removing the dead space (which the heading above is not in) when viewing an H5P activity
+.cm-type-h5pactivity div#region-main-box .activity-header {
+    display: none;
+}
